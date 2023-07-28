@@ -18,6 +18,32 @@
 // A node stores a piece of data  - val
 // A reference to the next node - next
 
+// Pop
+// keep track of the last item before the tail (pre - new tail)
+// remove the tail
+// make the pre (last item before the tail) the new tail
+
+// Hello ---> Goodbye ---> !
+// current
+// new tail
+// move the current by one
+// Hello ---> Goodbye ---> !
+//            current
+// new tail
+// We check if is this the end of the list and is not
+// we move the new tail
+// Hello ---> Goodbye ---> !
+//            current
+//            new tail
+// We move the current again and check if is this the tail
+// Hello ---> Goodbye ---> !
+//                         current
+//            new tail
+// it is the current tail so we pop it, we found the new tail and we make it the tail
+// Hello ---> Goodbye    !
+//                     current
+//            new tail
+
 class Node {
     constructor(val) {
         this.val = val;
@@ -45,12 +71,30 @@ class SlinglyLinkedList {
         return this;
     }
     
-    traverse() {
+    // traverse() {
+    //     var current = this.head;
+    //     while (current) {
+    //         console.log(current.val);
+    //         current = current.next;
+    //     }
+    // }
+
+    pop () {
+        if (!this.head) return undefined;
         var current = this.head;
-        while (current) {
-            console.log(current.val);
+        var newTail = current;
+        while(current.next) {
+            newTail = current;
             current = current.next;
         }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
     }
 }
 
@@ -58,10 +102,5 @@ var list = new SlinglyLinkedList();
 list.push("Hello");
 list.push("Goodbye");
 list.push("!");
-console.log(list.head.next.next);
-list.traverse();
+console.log(list.pop());
 
-// Pop
-// keep track of the last item before the tail (pre - new tail)
-// remove the tail
-// make the pre (last item before the tail) the new tail
