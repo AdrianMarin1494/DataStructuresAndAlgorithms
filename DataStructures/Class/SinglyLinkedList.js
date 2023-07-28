@@ -25,12 +25,6 @@ class Node {
     }
 }
 
-// var first = new Node("Hi");
-// first.next = new Node("there");
-// first.next.next = new Node("how");
-// first.next.next.next = new Node("are");
-// first.next.next.next.next = new Node("you");
-
 class SlinglyLinkedList {
     constructor() {
         this.head = null;
@@ -50,10 +44,24 @@ class SlinglyLinkedList {
         this.length++;
         return this;
     }
+    
+    traverse() {
+        var current = this.head;
+        while (current) {
+            console.log(current.val);
+            current = current.next;
+        }
+    }
 }
 
 var list = new SlinglyLinkedList();
 list.push("Hello");
 list.push("Goodbye");
-list.push("Welcome");
+list.push("!");
 console.log(list.head.next.next);
+list.traverse();
+
+// Pop
+// keep track of the last item before the tail (pre - new tail)
+// remove the tail
+// make the pre (last item before the tail) the new tail
