@@ -1,18 +1,18 @@
 const _ = require("lodash");
-const first = {name: "Tim", age: "20"};
-const second = {name: "Kim", age: "20"};
-const third = {name: "Kim", age: "20"};
-const fourth = third;
+// const first = {name: "Tim", age: "20"};
+// const second = {name: "Kim", age: "20"};
+// const third = {name: "Kim", age: "20"};
+// const fourth = third;
 
-// Comparison using JSON.stringify();
+// // Comparison using JSON.stringify();
 // console.log(
 //     JSON.stringify(second) === JSON.stringify(third)
 // )
 
-// Comparison using lodash .isEqual();
+// // Comparison using lodash .isEqual();
 // console.log(_.isEqual(second, third));
 
-// Custom comparison function
+// // Custom comparison function
 // function deepCompare(obj1, obj2) {
 //     if (obj1 === obj2) return true;
 //     if (!(obj1 instanceof Object) || !(obj2 instanceof Object)) return false;
