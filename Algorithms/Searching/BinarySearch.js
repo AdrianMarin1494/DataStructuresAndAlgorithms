@@ -6,6 +6,7 @@
 // We pick the pivot point in the middle
 // Check the left side and right side to see on which half is the element
 
+// Example
 // [1, 3, 4, 6, 8, 9, 11, 12, 15, 16, 17, 18, 19]
 // Search for 15
 // Left -      the middle is 11           - Right
