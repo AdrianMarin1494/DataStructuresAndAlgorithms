@@ -21,6 +21,7 @@
 // If the "minimum" is not the value (index) you initially began with, swap the two values.
 // Repeat this with the next element until the array is sorted.
 
+// Selection sort
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         let lowest = i;
@@ -33,6 +34,53 @@ function selectionSort(arr) {
             let temp = arr[i];
             arr[i] = arr[lowest];
             arr[lowest] = temp;
+        }
+    }
+
+    return arr;
+}
+
+selectionSort([34, 22, 10, 19, 17]);
+
+
+// i, j , lowest
+// 0, 1, 1
+// 0, 2, 2
+// 0, 3, 2
+// 0, 4, 2
+
+// [ 34, 22, 10, 19, 17 ]
+// swapping to: 
+// [ 10, 22, 34, 19, 17 ]
+// ************
+// [ 10, 22, 34, 19, 17 ]
+// swapping to: 
+// [ 10, 17, 34, 19, 22 ]
+// ************
+// [ 10, 17, 34, 19, 22 ]
+// swapping to: 
+// [ 10, 17, 19, 34, 22 ]
+// ************
+// [ 10, 17, 19, 34, 22 ]
+// swapping to: 
+// [ 10, 17, 19, 22, 34 ]
+// ************
+// [ 10, 17, 19, 22, 34 ]
+
+// Selection sort ES6
+
+function selectionSortEs6(arr) {
+    const sawp = (arr, idx1, idx2) => ([arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]);
+
+    for (let i = 0; i < arr.length; i++) {
+        let lowest = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[lowest]) {
+                lowest = j;
+            }
+        }
+        if (i !== lowest) {
+            swap(arr, i, lowest);
         }
     }
 
