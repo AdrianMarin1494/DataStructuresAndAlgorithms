@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/buy-two-chocolates/?envType=daily-question&envId=2023-12-20
-
 /**
  * @param {number[]} prices
  * @param {number} money
@@ -13,7 +11,3 @@ var buyChoco = function(prices, money) {
         return money;
     }
 };
-
-console.log(buyChoco([1,2,2], 3));
-console.log(buyChoco([5,6,8], 3));
-console.log(buyChoco([1], 3));
