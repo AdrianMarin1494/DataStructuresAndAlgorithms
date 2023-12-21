@@ -31,6 +31,24 @@
 // Decrement the length of the list by 1
 // Return the value of the node removed
 
+// pop () {
+//     if (!this.head) return undefined;
+//     var current = this.head;
+//     var newTail = current;
+//     while(current.next) {
+//         newTail = current;
+//         current = current.next;
+//     }
+//     this.tail = newTail;
+//     this.tail.next = null;
+//     this.length--;
+//     if (this.length === 0) {
+//         this.head = null;
+//         this.tail = null;
+//     }
+//     return current;
+// }
+
 class Node {
     constructor(val) {
         this.val = val;
