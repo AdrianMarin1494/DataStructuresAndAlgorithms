@@ -3,7 +3,6 @@
 
 // Each element is a node, a node stores data and refference the next node, if it is at the end it doesen t refference any node
 
-
 // Singly Linked List are an excellent alternative to arrays when insertion and deletion at the beginning are frequently required
 // Arrays contain a built in index whereas Linked List do not
 // The idea of a list data structure that consists of nodes is the foundation for other data structures like Stacks and Queues
