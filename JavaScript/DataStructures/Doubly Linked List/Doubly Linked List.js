@@ -24,3 +24,8 @@ first.next = new Node(2);
 first.next.prev = first;
 console.log(first);
 console.log(first.second);
+
+// Doubly Linked Lists are almost identical to Singly Linked Lists except there is an additional pointer to previous nodes
+// Better than Singly Linked Lists for finding nodes and can be done in half the time!
+// However, they do take up more memory considering the extra pointer
+// Doubly linked lists are used to implement other data structures and certain types of caches
