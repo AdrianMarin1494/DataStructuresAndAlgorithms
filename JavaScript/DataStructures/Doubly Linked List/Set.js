@@ -1,23 +1,38 @@
-// Add a pointer to the previous node and the next node. 
-// Almost the same with singly linked list, except every node has another pointer, to the previous node.
+// Replacing the value of a node to the in a Doubly Linked List
 
-class Node {
-    constructor(val) {
+// Set pseudocode
+// Create a variable which is the result of the get method at the index passed to the function
+// If the get method returns a valid node, set the value of that node to be the value passed to the function
+// Return true
+// Otherwise, return false
+
+// set(index, val){
+//     var foundNode = this.get(index);
+//     if(foundNode != null){
+//         foundNode.val = val;
+//         return true;
+//     }
+//     return false;
+// }
+
+class Node{
+    constructor(val){
         this.val = val;
         this.next = null;
         this.prev = null;
     }
 }
 
+
 class DoublyLinkedList {
-    constructor() {
+    constructor(){
         this.head = null;
         this.tail = null;
         this.length = 0;
     }
-    push(val) {
-        let newNode = new Node(val);
-        if (this.length === 0) {
+    push(val){
+        var newNode = new Node(val);
+        if(this.length === 0){
             this.head = newNode;
             this.tail = newNode;
         } else {
@@ -27,11 +42,11 @@ class DoublyLinkedList {
         }
         this.length++;
         return this;
-    }
-    pop() {
-        if (!this.head) return undefined;
-        let poppedNode = this.tail;
-        if (this.length === 1) {
+    } 
+    pop(){
+        if(!this.head) return undefined;
+        var poppedNode = this.tail;
+        if(this.length === 1){
             this.head = null;
             this.tail = null;
         } else {
@@ -42,13 +57,13 @@ class DoublyLinkedList {
         this.length--;
         return poppedNode;
     }
-    shift() {
-        if (this.length === 0) return undefined;
-        let oldHead = this.head;
-        if (this.length === 1) {
+    shift(){
+        if(this.length === 0) return undefined;
+        var oldHead = this.head;
+        if(this.length === 1){
             this.head = null;
             this.tail = null;
-        } else {
+        }else{
             this.head = oldHead.next;
             this.head.prev = null;
             oldHead.next = null;
@@ -56,9 +71,9 @@ class DoublyLinkedList {
         this.length--;
         return oldHead;
     }
-    unshift(val) {
-        let newNode = new Node(val);
-        if (this.length === 0) {
+    unshift(val){
+        var newNode = new Node(val);
+        if(this.length === 0) {
             this.head = newNode;
             this.tail = newNode;
         } else {
@@ -69,37 +84,37 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
-    get(index) {
-        if (index < 0 || index >= this.length) return null;
-        let count, current;
-        if (this.index <= this.length / 2) {
+    get(index){
+        if(index < 0 || index >= this.length) return null;
+        var count, current;
+        if(index <= this.length/2){
             count = 0;
             current = this.head;
-            while (count != index) {
+            while(count !== index){
                 current = current.next;
                 count++;
             }
         } else {
             count = this.length - 1;
             current = this.tail;
-            while (count != index) {
+            while(count !== index){
                 current = current.prev;
                 count--;
             }
         }
         return current;
     }
-    set(index, value) {
-        let foundNode = this.get(index);
-        if (foundNode != null) {
-            foundNode.val = value;
+    set(index, val){
+        var foundNode = this.get(index);
+        if(foundNode != null){
+            foundNode.val = val;
             return true;
         }
         return false;
     }
 }
 
-let list = new DoublyLinkedList()
+var list = new DoublyLinkedList()
 list.push("Harry")
 list.push("Ron")
 list.push("Hermione")
