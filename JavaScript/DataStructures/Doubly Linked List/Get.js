@@ -1,29 +1,33 @@
-// Adding a node to the beginning of the Doubly Linked List
+// Accessing a node in a Doubly Linked List by its position
 
-// Unshifting pseudocode
-// Create a new node with the value passed to the function
-// If the length is 0
-// Set the head to be the new node
-// Set the tail to be the new node
-// Otherwise
-// Set the prev property on the head of the list to be the new node
-// Set the next property on the new node to be the head property 
-// Update the head to be the new node
-// Increment the length
-// Return the list
+// Get Pseudocode
+// If the index is less than 0 or greater or equal to the length, return null
+// If the index is less than or equal to half the length of the list
+// Loop through the list starting from the head and loop towards the middle
+// Return the node once it is found
+// If the index is greater than half the length of the list
+// ​Loop through the list starting from the tail and loop towards the middle
+// Return the node once it is found
 
-// unshift(val){
-//     var newNode = new Node(val);
-//     if(this.length === 0) {
-//         this.head = newNode;
-//         this.tail = newNode;
+// get(index){
+//     if(index < 0 || index >= this.length) return null;
+//     var count, current;
+//     if(index <= this.length/2){
+//         count = 0;
+//         current = this.head;
+//         while(count !== index){
+//             current = current.next;
+//             count++;
+//         }
 //     } else {
-//         this.head.prev = newNode;
-//         newNode.next = this.head;
-//         this.head = newNode;
+//         count = this.length - 1;
+//         current = this.tail;
+//         while(count !== index){
+//             current = current.prev;
+//             count--;
+//         }
 //     }
-//     this.length++;
-//     return this;
+//     return current;
 // }
 
 class Node{
@@ -94,6 +98,26 @@ class DoublyLinkedList {
         }
         this.length++;
         return this;
+    }
+    get(index){
+        if(index < 0 || index >= this.length) return null;
+        var count, current;
+        if(index <= this.length/2){
+            count = 0;
+            current = this.head;
+            while(count !== index){
+                current = current.next;
+                count++;
+            }
+        } else {
+            count = this.length - 1;
+            current = this.tail;
+            while(count !== index){
+                current = current.prev;
+                count--;
+            }
+        }
+        return current;
     }
 }
 

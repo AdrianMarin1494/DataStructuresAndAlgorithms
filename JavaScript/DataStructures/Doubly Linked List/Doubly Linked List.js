@@ -1,5 +1,7 @@
 // Add a pointer to the previous node and the next node. 
 // Almost the same with singly linked list, except every node has another pointer, to the previous node.
+// More memory === More Flexibility 
+// It's almost always a tradeoff!
 
 class Node {
     constructor(val) {

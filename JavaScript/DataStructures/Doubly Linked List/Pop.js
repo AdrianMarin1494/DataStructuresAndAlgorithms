@@ -1,3 +1,5 @@
+// Removing a node from the end of the Doubly Linked List
+
 // Popping pseudocode
 // If there is no head, return undefined
 // Store the current tail in a variable to return later

@@ -1,3 +1,5 @@
+// Removing a node from the beginning of the Doubly Linked List
+
 // Shifting pseudocode
 // If length is 0, return undefined
 // Store the current head property in a variable (we'll call it old head)

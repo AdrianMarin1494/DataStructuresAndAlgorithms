@@ -69,10 +69,29 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        let count, current;
+        if (this.index <= this.length / 2) {
+            count = 0;
+            current = this.head;
+            while (count != index) {
+                current = current.next;
+                count++;
+            }
+        } else {
+            count = this.length - 1;
+            current = this.tail;
+            while (count != index) {
+                current = current.prev;
+                count--;
+            }
+        }
+        return current;
+    }
 }
 
-let first = new Node(1);
-first.next = new Node(2);
-first.next.prev = first;
-console.log(first);
-console.log(first.second);
+let list = new DoublyLinkedList()
+list.push("Harry")
+list.push("Ron")
+list.push("Hermione")

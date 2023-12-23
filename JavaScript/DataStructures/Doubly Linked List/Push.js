@@ -1,3 +1,5 @@
+// Adding a node to the end of the Doubly Linked List
+
 // Pushing pseudocode
 // Create a new node with the value passed to the function
 // If the head property is null set the head and tail to be the newly created node 
