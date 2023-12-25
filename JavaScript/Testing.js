@@ -1,26 +1,21 @@
-// https://leetcode.com/problems/unique-morse-code-words/
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
 /**
- * @param {string[]} words
+ * @param {number[]} nums
  * @return {number}
  */
-var uniqueMorseRepresentations = function(words) {
-    const letters = {'a':".-", 'b':"-...", 'c':"-.-.", 'd':"-..", 'e':".", 'f':"..-.", 'g':"--.", 'h':"....", 'i':"..", 'j':".---", 'k':"-.-", 'l':".-..", 'm':"--", 'n':"-.", 'o':"---", 'p':".--.", 'q':"--.-", 'r':".-.", 's':"...", 't':"-", 'u':"..-", 'v':"...-", 'w':".--", 'x':"-..-", 'y':"-.--", 'z':"--.."}
-    // --. .. -.
-    // --.. . -.
-    const uniqueCodes = new Set();
-    for (let i = 0; i < words.length; i++) {
-        let currentCode = "";
-        for (let j = 0; j < words[i].length; j++) {
-            currentCode += (letters[words[i][j]]);
-            console.log("current code: ", currentCode)
-            console.log("letter: ", letters[words[i][j]]);
+var removeDuplicates = function(nums) {
+    let counter = 0;
 
+    for (let i = 0; i < nums.length; i++) {
+        if (nums.indexOf(nums[i]) !== i) {
+            nums.splice(i, 1);
+        } else {
+            counter++;
         }
-        console.log(currentCode)
-        uniqueCodes.add(currentCode);
     }
-    return uniqueCodes.size;
+    console.log(nums);
+    return counter;
 };
 
-console.log(uniqueMorseRepresentations(["gin","zen","gig","msg"]));
+console.log(removeDuplicates([1, 1, 2]))
