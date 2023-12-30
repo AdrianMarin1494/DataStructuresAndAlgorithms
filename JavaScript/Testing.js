@@ -1,26 +1,28 @@
 /**
- * @param {string[]} words
+ * @param {string} s
+ * @param {string} t
  * @return {boolean}
  */
-var makeEqual = function(words) {
-    const joinedWords = words.join("");
-    const wordsFrequency = {};
-    for (let i = 0; i < joinedWords.length; i++) {
-        if (wordsFrequency[joinedWords[i]] === undefined) {
-            wordsFrequency[joinedWords[i]] = 1;
+var isIsomorphic = function(s, t) {
+    if (s.length !== t.length) return false;
+    const sFrequency = {};
+    const tFrequency = {};
+    for (let i = 0; i < s.length; i++) {
+        if (sFrequency[s[i]] === undefined) {
+            sFrequency[s[i]] = 1;
         } else {
-            wordsFrequency[joinedWords[i]] += 1;
+            sFrequency[s[i]] += 1;
+        }
+        if (tFrequency[t[i]] === undefined) {
+            tFrequency[t[i]] = 1;
+        } else {
+            tFrequency[t[i]] += 1;
         }
     }
-    console.log(wordsFrequency)
-    for (let j in wordsFrequency) {
-        console.log(wordsFrequency[j])
-        // if (wordsFrequency[joinedWords[0]] !== wordsFrequency[j]) {
-        if (wordsFrequency[j] % words.length !== 0) {
-            return false;
-        }
-    }
-    return true;
+    const sortedSFrequency = Object.entries(sFrequency).sort((a, b) => a[1] - b[1]);
+    const sortedTFrequency = Object.entries(tFrequency).sort((a, b) => a[1] - b[1]);
+    console.log(sortedSFrequency)
+    console.log(sortedTFrequency)
 };
 
-console.log(makeEqual(["abc","aabc","bc"]))
+isIsomorphic("bbbaaaba", "aaabbbba")
