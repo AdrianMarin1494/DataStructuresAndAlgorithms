@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/redistribute-characters-to-make-all-strings-equal/description/?envType=daily-question&envId=2023-12-30
+
 /**
  * @param {string[]} words
  * @return {boolean}
@@ -12,15 +14,10 @@ var makeEqual = function(words) {
             wordsFrequency[joinedWords[i]] += 1;
         }
     }
-    console.log(wordsFrequency)
     for (let j in wordsFrequency) {
-        console.log(wordsFrequency[j])
-        // if (wordsFrequency[joinedWords[0]] !== wordsFrequency[j]) {
         if (wordsFrequency[j] % words.length !== 0) {
             return false;
         }
     }
     return true;
 };
-
-console.log(makeEqual(["abc","aabc","bc"]))
