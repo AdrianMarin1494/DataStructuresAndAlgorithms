@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/missing-number/description/
+
 /**
  * @param {number[]} nums
  * @return {number}
@@ -12,13 +14,11 @@ var missingNumber = function(nums) {
 
     // Solution 2
     const sortedNums = nums.sort((a, b) => a - b);
-    console.log(sortedNums)
+    if (sortedNums[0] !== 0) return 0;
     for (let i = 0; i < sortedNums.length; i++) {
         if (sortedNums[i+1] - sortedNums[i] === 2) {
-            console.log(sortedNums[i+1])
-            return sortedNums[i+1] + 1;
+            return sortedNums[i] + 1;
         }
     }
+    return sortedNums[sortedNums.length - 1] + 1;
 };
-
-missingNumber([3,0,1])
