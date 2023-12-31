@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/largest-substring-between-two-equal-characters/description/?envType=daily-question&envId=2023-12-31
+
 /**
  * @param {string} s
  * @return {number}
@@ -13,19 +15,12 @@ var maxLengthBetweenEqualCharacters = function(s) {
             charactersFrequency[character] += 1;
         }
     }
-    console.log(charactersFrequency);
     for (let i in charactersFrequency) {
         if (charactersFrequency[i] > 1) {
-            console.log("char: ", i);
-            console.log("first index: ", s.indexOf(i))
-            console.log("last index: ", s.lastIndexOf(i))
             if (s.lastIndexOf(i) - s.indexOf(i) - 1 > maxLength) {
                 maxLength = s.lastIndexOf(i) - s.indexOf(i) - 1;
             }
         }
     }
-    console.log(maxLength);
     return maxLength;
  };
-
- maxLengthBetweenEqualCharacters("aydsicwrfybunpqsdsnenvrfirr")
