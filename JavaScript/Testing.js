@@ -1,31 +1,22 @@
 /**
- * @param {string} s
+ * @param {number[]} g
+ * @param {number[]} s
  * @return {number}
  */
-var maxLengthBetweenEqualCharacters = function(s) {
-    const charactersFrequency = {};
-    let maxLength = -1;
- 
-    for (let character of s) {
-        if (charactersFrequency[character] === undefined) {
-            charactersFrequency[character] = 1;
-        } else {
-            charactersFrequency[character] += 1;
+var findContentChildren = function(g, s) {
+    let gCopy = [...g];
+    let maximumNumber = 0;
+    for (let i = 0; i < s.length; i++) {
+        console.log("s[i]", s[i]);
+        console.log("gcopy befroe ", gCopy);
+        if (gCopy.includes(s[i])) {
+            gCopy.splice(gCopy.indexOf(s[i]), 1);
+            console.log("splice: ", gCopy.splice(gCopy.indexOf(s[i]), 1))
+            maximumNumber++;
         }
+        console.log("gcopy after", gCopy);
     }
-    console.log(charactersFrequency);
-    for (let i in charactersFrequency) {
-        if (charactersFrequency[i] > 1) {
-            console.log("char: ", i);
-            console.log("first index: ", s.indexOf(i))
-            console.log("last index: ", s.lastIndexOf(i))
-            if (s.lastIndexOf(i) - s.indexOf(i) - 1 > maxLength) {
-                maxLength = s.lastIndexOf(i) - s.indexOf(i) - 1;
-            }
-        }
-    }
-    console.log(maxLength);
-    return maxLength;
- };
+    return maximumNumber;
+};
 
- maxLengthBetweenEqualCharacters("aydsicwrfybunpqsdsnenvrfirr")
+findContentChildren([10,9,8,7], [10,9,8,7]);
