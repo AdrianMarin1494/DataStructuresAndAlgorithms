@@ -13,6 +13,14 @@
 // Ruby has...Hashes
 // * Objects have some restrictions, but are basically hash tables
 
+// Hash tables are collections of key-value pairs
+// Hash tables can find values quickly given a key
+// Hash tables can add new key-values quickly
+// Hash tables store data in a large array, and work by hashing the keys
+// A good hash should be fast, distribute keys uniformly, and be deterministic
+// Separate chaining and linear probing are two strategies used to deal with two keys that hash to the same index
+// When in doubt, use a hash table!
+
 class HashTable {
     constructor(size=53){
       this.keyMap = new Array(size);
