@@ -24,14 +24,21 @@ function hash(key, arrayLen) {
   // hash("pink", 10); // 0
   // hash("orangered", 10); // 7
   // hash("cyan", 10); // 3
+
+//   REFINING OUR HASH
+//   Problems with our current hash
   
-  function hash(key, arrayLen) {
-      let total = 0;
-      let WEIRD_PRIME = 31;
-      for (let i = 0; i < Math.min(key.length, 100); i++) {
-        let char = key[i];
-        let value = char.charCodeAt(0) - 96
-        total = (total * WEIRD_PRIME + value) % arrayLen;
-      }
-      return total;
+//   Only hashes strings (we won't worry about this)
+//   Not constant time - linear in key length
+//   Could be a little more random
+  
+function hash(key, arrayLen) {
+    let total = 0;
+    let WEIRD_PRIME = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+    let char = key[i];
+    let value = char.charCodeAt(0) - 96
+    total = (total * WEIRD_PRIME + value) % arrayLen;
     }
+    return total;
+}
