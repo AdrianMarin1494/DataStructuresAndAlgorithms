@@ -1,12 +1,7 @@
 # https://leetcode.com/problems/divisible-and-non-divisible-sums-difference/description/
 
-class Solution(object):
-    def differenceOfSums(self, n, m):
-        """
-        :type n: int
-        :type m: int
-        :rtype: int
-        """
+class Solution:
+    def differenceOfSums(self, n: int, m: int) -> int:
         num1 = 0
         num2 = 0
         for i in range(n + 1):
@@ -15,4 +10,3 @@ class Solution(object):
             else:
                 num1 += i
         return num1 - num2
-        
