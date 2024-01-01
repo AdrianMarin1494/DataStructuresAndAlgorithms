@@ -19,11 +19,12 @@ function hash(key, arrayLen) {
       total = (total + value) % arrayLen;
     }
     return total;
-  }
-  // Here's a hash that works on strings only:
-  // hash("pink", 10); // 0
-  // hash("orangered", 10); // 7
-  // hash("cyan", 10); // 3
+}
+
+// Here's a hash that works on strings only:
+// hash("pink", 10); // 0
+// hash("orangered", 10); // 7
+// hash("cyan", 10); // 3
 
 //   REFINING OUR HASH
 //   Problems with our current hash
@@ -31,14 +32,17 @@ function hash(key, arrayLen) {
 //   Only hashes strings (we won't worry about this)
 //   Not constant time - linear in key length
 //   Could be a little more random
+
+// The prime number in the hash is helpful in spreading out the keys more uniformly.
+// It's also helpful if the array that you're putting values into has a prime length.
   
 function hash(key, arrayLen) {
     let total = 0;
     let WEIRD_PRIME = 31;
     for (let i = 0; i < Math.min(key.length, 100); i++) {
-    let char = key[i];
+        let char = key[i];
     let value = char.charCodeAt(0) - 96
     total = (total * WEIRD_PRIME + value) % arrayLen;
-    }
-    return total;
+}
+return total;
 }
