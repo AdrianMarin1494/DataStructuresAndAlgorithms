@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/convert-an-array-into-a-2d-array-with-conditions/description/?envType=daily-question&envId=2024-01-02
+
 /**
  * @param {number[]} nums
  * @return {number[][]}
@@ -18,8 +20,5 @@ var findMatrix = function(nums) {
             arrayIdx++;
         }
     }
-    console.log(convertedArray)
+    return convertedArray;
 };
-// If it doesen t exist in the first array push it there,
-// If it exist in the first array, push in the second and so on
-findMatrix([1,3,4,1,2,3,1]);
