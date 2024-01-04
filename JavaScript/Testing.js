@@ -3,28 +3,30 @@
  * @return {boolean}
  */
 var isHappy = function(n) {
-    let stringNumber = new String(n);
-    console.log("n: ", n)
-    console.log("typeof n: ",typeof  n)
-    // console.log("stringNumber: ", stringNumber)
-    if (stringNumber.length === 1) {
-        if (n === 1) {
-            console.log("true")
-            return true;
+    function isHappyRecursion(newN) {
+        let stringNumber = new String(newN);
+        console.log("n: ", newN)
+        if (stringNumber.length === 1) {
+            if (newN === 1 || newN === 7) {
+                console.log("true")
+                return true;
+            }
+            if (newN !== 1) {
+                console.log(false);
+                return false;
+            }
         }
-        if (n !== 1) {
-            return false;
+
+        let sum = 0;
+
+        for (let i = 0; i < stringNumber.length; i++) {
+            sum += Number(stringNumber[i])**2;
         }
+
+        console.log("sum: ", sum);
+        return isHappyRecursion(sum);
     }
-
-    let sum = 0;
-
-    for (let i = 0; i < stringNumber.length; i++) {
-        sum += Number(stringNumber[i])**2;
-    }
-
-    console.log("sum: ", sum);
-    isHappy(sum);
+    return isHappyRecursion(n);
 };
 
 isHappy(19);
