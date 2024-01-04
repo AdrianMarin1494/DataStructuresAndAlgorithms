@@ -1,20 +1,30 @@
 /**
- * @param {string} s
- * @return {string}
+ * @param {number} n
+ * @return {boolean}
  */
-var finalString = function(s) {
-    let faultyString = "";
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === "i") {
-            console.log("before: ", faultyString)
-            faultyString = faultyString.split("").reverse().join("");
-            console.log("reverse: ", faultyString)
-        } else {
-            faultyString = faultyString.concat(s[i]);
+var isHappy = function(n) {
+    let stringNumber = new String(n);
+    console.log("n: ", n)
+    console.log("typeof n: ",typeof  n)
+    // console.log("stringNumber: ", stringNumber)
+    if (stringNumber.length === 1) {
+        if (n === 1) {
+            console.log("true")
+            return true;
+        }
+        if (n !== 1) {
+            return false;
         }
     }
-    console.log(faultyString);
-    return faultyString;
+
+    let sum = 0;
+
+    for (let i = 0; i < stringNumber.length; i++) {
+        sum += Number(stringNumber[i])**2;
+    }
+
+    console.log("sum: ", sum);
+    isHappy(sum);
 };
 
-finalString("string");
+isHappy(19);
