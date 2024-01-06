@@ -1,32 +1,23 @@
 /**
  * @param {number} n
- * @return {boolean}
+ * @return {number}
  */
-var isHappy = function(n) {
-    function isHappyRecursion(newN) {
-        let stringNumber = new String(newN);
-        console.log("n: ", newN)
-        if (stringNumber.length === 1) {
-            if (newN === 1 || newN === 7) {
-                console.log("true")
-                return true;
-            }
-            if (newN !== 1) {
-                console.log(false);
-                return false;
-            }
-        }
+var numberOfMatches = function(n) {
+    let numberOfTeams = n;
+    let matchesCounter = 0;
 
-        let sum = 0;
+    console.log("numberOfTeams: ", numberOfTeams)
+    console.log("matchesCounter: ", matchesCounter)
 
-        for (let i = 0; i < stringNumber.length; i++) {
-            sum += Number(stringNumber[i])**2;
-        }
+    while (numberOfTeams !== 1) {
+        matchesCounter += Math.floor(numberOfTeams / 2);
+        numberOfTeams = Math.ceil(numberOfTeams / 2);
 
-        console.log("sum: ", sum);
-        return isHappyRecursion(sum);
+        console.log("numberOfTeams: ", numberOfTeams)
+        console.log("matchesCounter: ", matchesCounter)
     }
-    return isHappyRecursion(n);
+    
+    return matchesCounter;
 };
 
-isHappy(19);
+numberOfMatches(14);
