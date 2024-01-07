@@ -25,5 +25,5 @@ var findIntersectionValues = function(nums1, nums2) {
         }
     }
 
-    return [indicesCounterNums1, indicesCounterNums2]
+    return [indicesCounterNums1, indicesCounterNums2];
 };
