@@ -12,7 +12,7 @@ var countConsistentStrings = function(allowed, words) {
             if (!allowed.includes(words[i][j])) {
                 break;
             }
-            if (j === words[i]. length - 1) {
+            if (j === words[i].length - 1) {
                 consistentStringsCounter++;
             }
         }
