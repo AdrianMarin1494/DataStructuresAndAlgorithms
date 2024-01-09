@@ -1,60 +1,26 @@
 /**
- * @param {string} s
- * @return {string}
+ * @param {string[]} words
+ * @return {number}
  */
-var replaceDigits = function(s) {
-    // create an array from s
-    // crate an object with key: letter, value: number
-    // create a function which gets the char and number and returns the shifted letter
-    // create a shifting function which : 
-    // iterate over the array using i+2, and call the helper function for each
-    // return the string version of the array
+var maximumNumberOfStringPairs = function(words) {
+    // create a pairsCounter
+    // iterate over the words array
+    // check if words includes the reversed version of the current string, if yes increment the counter
+    // return the counter
 
-    const letterValues = {
-        a: 0,
-        b: 1,
-        c: 2,
-        d: 3,
-        e: 4,
-        f: 5,
-        g: 6,
-        h: 7,
-        i: 8,
-        j: 9,
-        k: 10,
-        l: 11,
-        m: 12,
-        n: 13,
-        o: 14,
-        p: 15,
-        q: 16,
-        r: 17,
-        s: 18,
-        t: 19,
-        u: 20,
-        v: 21,
-        w: 22,
-        x: 23,
-        y: 24,
-        z: 25
+    let pairsCounter = 0;
+
+    for (let i = 0; i < words.length; i++) {
+        let reversedWord = words[i].split("").reverse().join("");
+        if (words.indexOf(reversedWord) > - 1 && words.indexOf(reversedWord) !== i) {
+            console.log("reversedWord: ", reversedWord)
+            console.log("on if")
+            pairsCounter++;
+        }
     }
-    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-    function shift(character, digit) {
-        let letterIndex = Number(letterValues[character]) + Number(digit);
-        console.log("letterIndex: ", letterIndex)
-        console.log("letters[letterIndex]: ", letters[letterIndex])
-        return letters[letterIndex];
-    }
-
-    const sCharacters = s.split("");
     
-    for (let i = 1; i < sCharacters.length; i += 2) {
-        sCharacters[i] = shift(sCharacters[i-1], sCharacters[i]);
-    }
-
-    console.log(sCharacters.join(""))
-    return sCharacters.join("");
+    console.log(Math.floor(pairsCounter / 2))
+    return Math.floor(pairsCounter / 2);  
 };
 
-replaceDigits("a1c1e1")
+maximumNumberOfStringPairs(["ff","tx","qr","zw","wr","jr","zt","jk","sq","xx"]);
