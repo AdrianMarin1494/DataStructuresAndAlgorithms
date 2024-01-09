@@ -6,7 +6,7 @@
  */
 var replaceDigits = function(s) {
     // create an array from s
-    // crate an object with key: letter, value: number
+    // crate an object with key: letter, value: number, and an array of letters
     // create a function which gets the char and number and returns the shifted letter
     // create a shifting function which : 
     // iterate over the array using i+2, and call the helper function for each
