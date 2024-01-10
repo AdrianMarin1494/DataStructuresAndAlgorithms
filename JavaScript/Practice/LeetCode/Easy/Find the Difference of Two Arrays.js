@@ -14,10 +14,12 @@ var findDifference = function(nums1, nums2) {
             nums1Distinct.push(nums1[i]);
         }
     }
+
     for (let i = 0; i < nums2.length; i++) {
         if (!nums1.includes(nums2[i]) && !nums2Distinct.includes(nums2[i])) {
             nums2Distinct.push(nums2[i]);
         }
     }
+    
     return [nums1Distinct, nums2Distinct];
 };
