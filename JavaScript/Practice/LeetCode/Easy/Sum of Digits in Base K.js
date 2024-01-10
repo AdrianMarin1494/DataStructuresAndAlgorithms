@@ -6,12 +6,12 @@
  * @return {number}
  */
 var sumBase = function(n, k) {
-    let sum = 0
-    
+    let sum = 0;
+
     while ( n > 0){
-        sum += n%k
-        n = ~~(n/k)
+        sum += n%k;
+        n = ~~(n/k);
     }
 
-    return sum    
+    return sum;
 };
