@@ -1,26 +1,22 @@
+// https://leetcode.com/problems/add-digits/
 /**
- * @param {string[]} words
+ * @param {number} num
  * @return {number}
  */
-var maximumNumberOfStringPairs = function(words) {
-    // create a pairsCounter
-    // iterate over the words array
-    // check if words includes the reversed version of the current string, if yes increment the counter
-    // return the counter
+var addDigits = function(num) {
+    let digits = new String(num).split("");
+    let sum = 0;
+    console.log(digits)
 
-    let pairsCounter = 0;
-
-    for (let i = 0; i < words.length; i++) {
-        let reversedWord = words[i].split("").reverse().join("");
-        if (words.indexOf(reversedWord) > - 1 && words.indexOf(reversedWord) !== i) {
-            console.log("reversedWord: ", reversedWord)
-            console.log("on if")
-            pairsCounter++;
+    while (digits.length > 1) {
+        for (let i = 0; i < digits.length; i++) {
+            sum += Number(digits[i])
         }
+        digits = new String(sum).split("");
+        sum = 0;
+        console.log(digits)
     }
-    
-    console.log(Math.floor(pairsCounter / 2))
-    return Math.floor(pairsCounter / 2);  
+    return Number(digits[0]);
 };
 
-maximumNumberOfStringPairs(["ff","tx","qr","zw","wr","jr","zt","jk","sq","xx"]);
+addDigits(38)
