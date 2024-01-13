@@ -6,7 +6,6 @@
  * @return {number}
  */
 var minSteps = function(s, t) {
-    // check if s and t have the same number of letters, return false if not
     // create an object to count each letter
     // create an stepsCounter
     // iterate over s(can be also t)
@@ -28,10 +27,6 @@ var minSteps = function(s, t) {
 //     c + 0
 //     o + 1
 //     d + 1
-
-    if (s.length !== t.length) {
-        return false;
-    }
 
     const sLetters = {};
     const tLetters = {};
