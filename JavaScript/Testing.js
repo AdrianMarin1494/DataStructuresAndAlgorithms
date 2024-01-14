@@ -1,22 +1,32 @@
-// https://leetcode.com/problems/add-digits/
 /**
- * @param {number} num
- * @return {number}
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
  */
-var addDigits = function(num) {
-    let digits = new String(num).split("");
-    let sum = 0;
-    console.log(digits)
-
-    while (digits.length > 1) {
-        for (let i = 0; i < digits.length; i++) {
-            sum += Number(digits[i])
-        }
-        digits = new String(sum).split("");
-        sum = 0;
-        console.log(digits)
+var reverseStr = function(s, k) {
+    const result = s.split("")
+    if (s.length < k) {
+        return result.reverse().join("");
     }
-    return Number(digits[0]);
+    else if (s.length < 2 * k) {
+        for (let i = 0; i < k / 2; i++) {
+            let temp = result[i]; 
+            result[i] = result[k-i-1];
+            result[k-i-1] = temp;
+        }
+        return result.join("");
+    }
+    else {
+        for (let i = 0; i < s.length; i += 2 * k) {
+            console.log(i)
+            let temp = result[i]; 
+            result[i] = result[i+1];
+            result[i+1] = temp;
+            console.log(result)
+        }
+        return result.join("");
+    }
 };
 
-addDigits(38)
+
+reverseStr("abcdefg", 2);
