@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/check-if-word-equals-summation-of-two-words/
+
 /**
  * @param {string} firstWord
  * @param {string} secondWord
@@ -43,13 +45,9 @@ var isSumEqual = function(firstWord, secondWord, targetWord) {
         let concatenatedValue = "";
         
         for (let i = 0; i < word.length; i++) {
-            console.log("letter: ", lettersValue[word[i]]);
             concatenatedValue += lettersValue[word[i]];
         }
-        console.log("value: ", concatenatedValue)
         
         return Number(concatenatedValue);
     }
 };
-
-isSumEqual("acb", "cba", "cdb");
