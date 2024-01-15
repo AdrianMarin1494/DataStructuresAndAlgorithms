@@ -27,3 +27,6 @@ function fib(n, memo=[]){
     memo[n] = res;
     return res;
 }
+
+// Big O:
+// Time complexity: O(n)
