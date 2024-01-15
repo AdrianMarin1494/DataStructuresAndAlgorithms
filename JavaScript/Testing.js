@@ -1,55 +1,51 @@
 /**
- * @param {string} firstWord
- * @param {string} secondWord
- * @param {string} targetWord
- * @return {boolean}
+ * @param {number[][]} matches
+ * @return {number[][]}
  */
-var isSumEqual = function(firstWord, secondWord, targetWord) {
-    const firstWordValue = getNumberFromWord(firstWord);
-    const secondWordValue = getNumberFromWord(secondWord);
-    const targetWordValue = getNumberFromWord(targetWord);
+var findWinners = function(matches) {
+    // object: key: player, value: loses
+    // {
+    //     "3": 2,
+    //     "6": 2,
+    //     "7": 1,
+    //     "5": 1,
+    //     "8": 1,
+    //     "9": 2,
+    //     "4": 1
+    // }
+    // take the players who lost only 1 from here
+    // if object[matches[i]] === undefined, the player didn t lost and add it to the first array
 
-    return firstWordValue + secondWordValue === targetWordValue;
+    const playersOne = [];
+    const playersZero = [];
+    const playersLoses = {};
 
-    function getNumberFromWord(word) {
-        const lettersValue = {
-            a: "0",
-            b: "1",
-            c: "2",
-            d: "3",
-            e: "4",
-            f: "5",
-            g: "6",
-            h: "7",
-            i: "8",
-            j: "9",
-            k: "10",
-            l: "11",
-            m: "12",
-            n: "13",
-            o: "14",
-            p: "15",
-            q: "16",
-            r: "17",
-            s: "18",
-            t: "19",
-            u: "20",
-            v: "21",
-            w: "22",
-            x: "23",
-            y: "24",
-            z: "25"
-        };
-        let concatenatedValue = "";
-        
-        for (let i = 0; i < word.length; i++) {
-            console.log("letter: ", lettersValue[word[i]]);
-            concatenatedValue += lettersValue[word[i]];
+    for (let i = 0; i < matches.length; i++) {
+        if (playersLoses[matches[i][1]] === undefined) {
+            playersLoses[matches[i][1]] = 1;
+        } else {
+            playersLoses[matches[i][1]] += 1;
         }
-        console.log("value: ", concatenatedValue)
-        
-        return Number(concatenatedValue);
     }
+
+    for (let player in playersLoses) {
+        if (playersLoses[player] === 1) {
+            playersOne.push(Number(player));
+        }
+    }
+
+    for (let i = 0; i < matches.length; i++) {
+        if (playersLoses[matches[i][0]] === undefined && !playersZero.includes(matches[i][0])) {
+            playersZero.push(matches[i][0]);
+        }
+    }
+
+    playersOne.sort((a, b) => a - b);
+    playersZero.sort((a, b) => a - b);
+
+    console.log([playersZero], [playersOne]);
+    return [[...playersZero], [...playersOne]];
 };
 
-isSumEqual("acb", "cba", "cdb");
+
+findWinners([[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]);
