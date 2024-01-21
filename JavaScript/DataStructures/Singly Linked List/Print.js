@@ -130,7 +130,7 @@ class SinglyLinkedList{
         var arr = [];
         var current = this.head
         while(current){
-            Arr.push(current.val)
+            arr.push(current.val)
             current = current.next
         }
         console.log(arr);
