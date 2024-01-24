@@ -9,7 +9,7 @@ class Stack {
     constructor() {
         this.first = null;
         this.last = null;
-        this.length = 0;
+        this.size = 0;
     }
 
     push(val) {
@@ -24,19 +24,22 @@ class Stack {
             this.first.next = temp;
         }
 
-        return ++this.length;
+        this.size++;
+        return this.size;
     }
 
-    pull() {
+    pop() {
         if (!this.first) {
             return null;
         }
-        let temp = this.first;
+
+        const temp = this.first;
         if (this.first === this.last) {
             this.last = null;
         }
         this.first = this.first.next;
-        this.length--;
-        return temp;
+        this.size--;
+
+        return temp.value;
     }
 }
