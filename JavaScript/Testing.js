@@ -36,7 +36,6 @@ class Stack {
             this.last = null;
         }
         this.first = this.first.next;
-        this.first = null;
         this.length--;
         return temp;
     }
