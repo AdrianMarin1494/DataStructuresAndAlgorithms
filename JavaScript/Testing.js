@@ -1,19 +1,43 @@
-/**
- * @param {number[][]} rooms
- * @return {boolean}
- */
-var canVisitAllRooms = function(rooms) {
-    const keys = rooms[0]; // unvisited rooms
-    let UniqueKeys = new Set();  // uniquely visited rooms
-     while(keys[keys.length-1]){
-         let key = keys.pop(); // getting unvisited room
-         UniqueKeys.add(key); // adding to visited rooms
-         for(let k of rooms[key]){
-            // if the room is not visited adding it in to-be visited 
-             if(!UniqueKeys.has(k)){ 
-                 keys.push(k); 
-             }
-         }
-     }
-     return UniqueKeys.size == rooms.length-1; 
-};
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
+    }
+
+    insert(value) {
+        const newNode = new Node(value);
+        
+        if (this.root === null) {
+            this.root = newNode;
+            return this;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (value === current.value) {
+                return undefined;
+            }
+            if (value < current.value) {
+                if (current.left === null) {
+                    current.left = newNode;
+                    return this;
+                }
+                current = current.left;
+            } else {
+                if (current.right === null) {
+                    current.right = newNode;
+                    return this;
+                }
+                current = current.right;
+            }
+        }
+    }
+}
