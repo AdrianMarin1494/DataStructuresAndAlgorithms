@@ -1,25 +1,31 @@
-class MaxBinaryHeap {
-    constructor() {
-        this.values = [];
-    }
-
-    insert(element) {
-        this.values.push(element);
-        this.bubbleUp();
-    }
-
-    bubbleUp() {
-        let idx = this.values.length - 1;
-        let element = this.values[idx];
-        while (idx > 0) {
-            let parentIdx = Math.floor((idx - 1) / 2);
-            let parent = this.values[parentIdx];
-            if (element <= parent) {
-                break;
-            }
-            this.values[parentIdx] = element;
-            this.values[idx] = parent;
-            idx = parentIdx;
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @return {number}
+ */
+var findLeastNumOfUniqueInts = function(arr, k) {
+    const numberFrequency = {};
+    
+    for (let i = 0; i < arr.length; i++) {
+        if (numberFrequency[arr[i]] === undefined) {
+            numberFrequency[arr[i]] = 1;
+        } else {
+            numberFrequency[arr[i]] += 1;
         }
     }
-}
+
+    const res = (Object.entries(numberFrequency).sort((a, b) => b[1] - a[1]))
+
+    for (let i = 1; i <= k; i++) {
+        if (res[res.length-1][1] === 1) {
+            res.pop();
+        } else {
+            res[res.length-1][1] -= 1;
+        }
+    }
+
+    console.log(res.length);
+    return res.length;
+};
+
+findLeastNumOfUniqueInts([5,5,5,4], 2)
