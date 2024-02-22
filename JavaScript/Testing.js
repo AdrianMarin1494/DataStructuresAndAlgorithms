@@ -1,31 +1,38 @@
 /**
- * @param {number[]} arr
- * @param {number} k
+ * @param {number} n
+ * @param {number[][]} trust
  * @return {number}
  */
-var findLeastNumOfUniqueInts = function(arr, k) {
-    const numberFrequency = {};
-    
-    for (let i = 0; i < arr.length; i++) {
-        if (numberFrequency[arr[i]] === undefined) {
-            numberFrequency[arr[i]] = 1;
-        } else {
-            numberFrequency[arr[i]] += 1;
+var findJudge = function(n, trust) {
+    if (n === 1) {
+        return 1;
+    }
+    const trustPerPerson = {};
+      
+    for (let i = 0; i < trust.length; i++) {
+        trustPerPerson[trust[i][1]] === undefined ? trustPerPerson[trust[i][1]] = 1 : trustPerPerson[trust[i][1]] += 1;
+    }
+
+    console.log(trustPerPerson)
+
+    for (let i in trustPerPerson) {
+        if (trustPerPerson[i] === n - 1) {
+            for (let j = 0; j < trust.length; j++) {
+                console.log('trustingPerson: ', trust[j][0])
+                console.log('turstPerPerson[i]: ', i)
+                if (trust[j][0] === Number(i)) {
+                    console.log(-1)
+                    return -1;
+                }
+            }
+            console.log(i);
+            return i;
         }
     }
 
-    const res = (Object.entries(numberFrequency).sort((a, b) => b[1] - a[1]))
+    console.log(-1);
+    return -1;
+  };
 
-    for (let i = 1; i <= k; i++) {
-        if (res[res.length-1][1] === 1) {
-            res.pop();
-        } else {
-            res[res.length-1][1] -= 1;
-        }
-    }
 
-    console.log(res.length);
-    return res.length;
-};
-
-findLeastNumOfUniqueInts([5,5,5,4], 2)
+  findJudge(3, [[1,3],[2,3],[3,1]])
