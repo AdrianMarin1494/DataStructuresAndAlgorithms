@@ -25,3 +25,6 @@ class Solution:
             
             # Return the balance to the parent node
             return balance
+        
+        post_order(root)
+        return self.moves
