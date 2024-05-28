@@ -1,0 +1,18 @@
+# https://leetcode.com/problems/get-equal-substrings-within-budget/description/?envType=daily-question&envId=2024-05-28
+
+class Solution:
+    def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
+        start = 0
+        currentCost = 0
+        maxLength = 0
+        
+        for end in range(len(s)):
+            currentCost += abs(ord(s[end]) - ord(t[end]))
+            
+            while currentCost > maxCost:
+                currentCost -= abs(ord(s[start]) - ord(t[start]))
+                start += 1
+            
+            maxLength = max(maxLength, end - start + 1)
+        
+        return maxLength
