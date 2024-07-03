@@ -13,3 +13,4 @@ class Solution:
             nums[-2] - nums[2],    # Remove the two smallest and the largest
             nums[-3] - nums[1],    # Remove the smallest and the two largest
             nums[-4] - nums[0]     # Remove the three largest
+        )
